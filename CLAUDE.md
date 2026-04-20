@@ -73,6 +73,7 @@ xp-labs/
 | `/create-lead-magnet` | Create a lead magnet or front-end offer asset |
 | `/graph-health` | Check knowledge graph health and get recommendations |
 | `/quickstart` | Rebuild or reset XP Labs's directory structure |
+| `/git-workflow` | Stage, commit, push, and open a PR — never directly to main |
 
 **Tip:** Type `/` to see all available commands in Claude Code.
 
