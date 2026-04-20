@@ -1,0 +1,120 @@
+# Market Research Knowledge Base - Ontology
+# Defines how concepts relate in XP Labs's market research expertise KB
+
+version: "1.0.0"
+last_updated: "2026-02-19"
+scope: system-wide
+
+# Relationship Types
+
+relationship_types:
+
+  enables:
+    description: "Concept A makes Concept B possible"
+    examples:
+      - "[[anonymous-platform-advantage]] enables [[honest-audience-data]]"
+      - "[[three-step-introverted-research-process]] enables [[voice-of-customer-extraction]]"
+
+  informs:
+    description: "Concept A provides insight for Concept B"
+    examples:
+      - "[[identity-problems-dreams-obstacles-framework]] informs [[copy-angle-development]]"
+      - "[[research-saturation-stopping-criteria]] informs [[research-scoping]]"
+
+  supports:
+    description: "Concept A strengthens Concept B"
+    examples:
+      - "[[amazon-reviews-voice-of-customer]] supports [[pain-language-extraction]]"
+      - "[[google-journey-replication]] supports [[buyer-journey-mapping]]"
+
+  addresses:
+    description: "Concept A solves or responds to Concept B"
+    examples:
+      - "[[anonymous-platform-advantage]] addresses [[social-desirability-bias]]"
+      - "[[research-saturation-stopping-criteria]] addresses [[over-research-paralysis]]"
+
+  requires:
+    description: "Concept A needs Concept B to function"
+    examples:
+      - "[[three-step-introverted-research-process]] requires [[audience-finding]]"
+      - "[[voice-of-customer-extraction]] requires [[documentation-methods]]"
+
+  competes_with:
+    description: "Concept A is an alternative to Concept B"
+    examples:
+      - "[[reddit-research]] competes_with [[facebook-groups-research]]"
+      - "[[introverted-research]] competes_with [[direct-customer-interviews]]"
+
+# Linking Requirements
+
+linking_rules:
+  minimum_links_per_node: 3
+  recommended_links_per_node: 5
+  maximum_links_per_node: 10
+
+  quality_standards:
+    - "Links must be bidirectional (if A links to B, B should link to A)"
+    - "Links must span multiple domains (don't only link within same category)"
+    - "Links must be meaningful (explain HOW concepts relate)"
+    - "Avoid orphan nodes (every node should have 3+ inbound links)"
+
+# Cross-Domain Connection Patterns
+
+cross_domain_patterns:
+
+  platforms_to_process:
+    description: "Platform nodes should link to research process execution"
+    example: "[[reddit-research]] → [[three-step-introverted-research-process]], [[audience-finding]]"
+
+  process_to_voc:
+    description: "Research process nodes should link to voice-of-customer extraction"
+    example: "[[three-step-introverted-research-process]] → [[identity-problems-dreams-obstacles-framework]]"
+
+  voc_to_strategy:
+    description: "Voice-of-customer nodes link to strategic application"
+    example: "[[pain-language-extraction]] → [[copy-angle-development]], [[campaign-ideation]]"
+
+  strategy_to_platforms:
+    description: "Strategy nodes inform platform selection decisions"
+    example: "[[platform-prioritization]] → [[anonymous-platform-advantage]], [[reddit-research]]"
+
+# Concept Lifecycle Relationships
+
+lifecycle_rules:
+
+  emergent:
+    linking_requirement: "Minimum 3 links to existing validated/canonical nodes"
+    rationale: "New concepts must connect to proven foundation"
+
+  validated:
+    linking_requirement: "Minimum 5 links spanning 2+ domains"
+    rationale: "Validated concepts should integrate across expertise areas"
+
+  canonical:
+    linking_requirement: "Referenced by 5+ other nodes as foundation"
+    rationale: "Core concepts are highly connected hubs"
+
+# Knowledge Graph Structure Goals
+
+graph_goals:
+  density: "Every node should be reachable from any other node in <4 hops"
+  diversity: "Nodes should link across domains, not just within categories"
+  bidirectionality: "80%+ of links should be reciprocal"
+  hub_formation: "Canonical nodes should naturally emerge as connection hubs"
+  semantic_coherence: "Related concepts should cluster together in graph"
+
+# Special Relationship Patterns for Market Research
+
+market_research_patterns:
+
+  research_to_copy_flow:
+    description: "Research → Voice-of-customer → Copy angles → Campaign"
+    example: "[[reddit-research]] → [[pain-language-extraction]] → [[copy-angle-development]] → [[cold-email-campaign]]"
+
+  platform_selection_chain:
+    description: "Niche → Platform fit → Anonymity level → Data quality"
+    example: "[[icp-definition]] → [[platform-selection]] → [[anonymous-platform-advantage]] → [[honest-audience-data]]"
+
+  research_depth_decision:
+    description: "Project value → Research depth → Platform choices → Stopping criteria"
+    example: "[[project-value-threshold]] → [[research-scoping]] → [[platform-prioritization]] → [[saturation-detection]]"

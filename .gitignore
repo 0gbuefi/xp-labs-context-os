@@ -1,0 +1,30 @@
+# List-building work files (CSVs, scraped data, iterative exports — too large for git)
+knowledge_base/list-building/
+
+# Temporary files
+tmpclaude-*
+*.tmp
+*~
+.DS_Store
+
+# Environment files
+.env
+.env.local
+
+# OS files
+Thumbs.db
+desktop.ini
+
+# IDE settings
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Temp work directories
+temp-work-files/
+tmp/

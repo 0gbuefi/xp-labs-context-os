@@ -1,0 +1,103 @@
+# Knowledge Graph Taxonomy - XP Labs
+# B2B SaaS - AI-Powered Customer Language Research
+
+version: 1.1.0
+last_updated: 2026-04-13
+
+domains:
+  blessed:
+    - technical
+    - business
+    - methodology
+    - emergent      # New concepts not yet validated
+
+node_types:
+  blessed:
+    - concept       # Core ideas
+    - pattern       # Repeatable approaches
+    - case-study    # Real examples
+    - framework     # Structured methodologies
+
+status_values:
+  blessed:
+    - emergent      # Identified but not validated
+    - validated     # Proven in practice (1+ times)
+    - canonical     # Proven and referenced (2+ times)
+
+# Domain-specific tags for XP Labs (B2B SaaS)
+topic_library:
+  technical:
+    - product-features
+    - research-pipeline
+    - ai-analysis
+    - awareness-stages
+    - research-intake
+    - search
+    - pricing
+    - voice-profiles
+    - social-listening
+    - follow-up-research
+    - research-quality
+  business:
+    - icp
+    - target-audience
+    - persona
+    - decision-maker
+    - pain-points
+    - value-props
+    - competitive-intel
+    - positioning
+    - deal-strategy
+    - manual-research
+    - time-waste
+    - organization
+    - research-waste
+    - compounding
+    - research-depth
+    - blind-spots
+    - ai-copy
+    - generic-output
+    - customer-language
+    - messaging-gap
+    - exact-phrases
+    - differentiator
+    - awareness-stages
+    - long-term-value
+    - real-conversations
+    - authenticity
+    - status-quo
+    - reddit-monitoring
+    - social-listening
+    - audience-research
+  audience-intelligence:
+    - imposter-syndrome
+    - confidence-progression
+    - research-anxiety
+    - research-burden
+    - ai-threat
+    - pricing-psychology
+    - creative-identity
+    - craft-pride
+    - career-transitions
+    - career-progression
+    - course-buying-behavior
+    - client-negotiation
+    - cold-outreach
+    - non-native-challenges
+    - comparison-anxiety
+    - copywriter-identity
+    - freelance-platforms
+    - aspiration-framework
+    - aspiration-confidence
+    - aspiration-independence
+    - audience-daily-reality
+  methodology:
+    - email-patterns
+    - discovery-insights
+    - objection-handling
+
+# Quality thresholds
+quality_thresholds:
+  tag_sprawl_warning: 40
+  minimum_topic_count: 3
+  maximum_topic_count: 7

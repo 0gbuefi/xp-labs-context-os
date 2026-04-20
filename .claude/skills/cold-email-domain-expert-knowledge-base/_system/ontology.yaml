@@ -1,0 +1,140 @@
+# Cold Email Domain Expert - Ontology
+# Defines how concepts relate in XP Labs's cold email expertise KB
+
+version: "1.0.0"
+last_updated: "2026-01-15"
+scope: system-wide
+
+# Relationship Types
+
+relationship_types:
+
+  enables:
+    description: "Concept A makes Concept B possible"
+    examples:
+      - "[[icp-definition]] enables [[pain-point-research]]"
+      - "[[list-hygiene]] enables [[high-open-rates]]"
+
+  informs:
+    description: "Concept A provides insight for Concept B"
+    examples:
+      - "[[open-rate-signals]] informs [[subject-line-optimization]]"
+      - "[[negative-reply-patterns]] informs [[angle-pivots]]"
+
+  supports:
+    description: "Concept A strengthens Concept B"
+    examples:
+      - "[[personalization-tactics]] supports [[reply-rate-improvement]]"
+      - "[[pain-point-research]] supports [[value-prop-articulation]]"
+
+  addresses:
+    description: "Concept A solves or responds to Concept B"
+    examples:
+      - "[[copy-optimization]] addresses [[low-reply-rates]]"
+      - "[[segmentation-strategy]] addresses [[poor-relevance]]"
+
+  requires:
+    description: "Concept A needs Concept B to function"
+    examples:
+      - "[[campaign-ideation]] requires [[icp-definition]]"
+      - "[[angle-pivots]] requires [[campaign-failure-signals]]"
+
+  competes_with:
+    description: "Concept A is an alternative to Concept B"
+    examples:
+      - "[[pain-first-approach]] competes_with [[roi-first-approach]]"
+      - "[[short-subject-lines]] competes_with [[descriptive-subject-lines]]"
+
+# Linking Requirements
+
+linking_rules:
+  minimum_links_per_node: 3
+  recommended_links_per_node: 5
+  maximum_links_per_node: 10
+
+  quality_standards:
+    - "Links must be bidirectional (if A links to B, B should link to A)"
+    - "Links must span multiple domains (don't only link within same category)"
+    - "Links must be meaningful (explain HOW concepts relate)"
+    - "Avoid orphan nodes (every node should have 3+ inbound links)"
+
+# Cross-Domain Connection Patterns
+
+cross_domain_patterns:
+
+  campaign_to_copy:
+    description: "Campaign strategy nodes should link to copywriting execution"
+    example: "[[campaign-ideation]] → [[subject-lines]], [[opening-lines]]"
+
+  metrics_to_iteration:
+    description: "Metrics nodes should inform iteration decisions"
+    example: "[[reply-rate-analysis]] → [[when-to-iterate]], [[angle-pivots]]"
+
+  icp_to_everything:
+    description: "ICP research underpins all other domains"
+    example: "[[icp-definition]] → [[campaign-ideation]], [[pain-point-research]], [[list-building]]"
+
+  iteration_to_metrics:
+    description: "Iteration decisions depend on metrics signals"
+    example: "[[campaign-failure-signals]] → [[open-rate-signals]], [[negative-reply-patterns]]"
+
+# Concept Lifecycle Relationships
+
+lifecycle_rules:
+
+  emergent:
+    linking_requirement: "Minimum 3 links to existing validated/canonical nodes"
+    rationale: "New concepts must connect to proven foundation"
+
+  validated:
+    linking_requirement: "Minimum 5 links spanning 2+ domains"
+    rationale: "Validated concepts should integrate across expertise areas"
+
+  canonical:
+    linking_requirement: "Referenced by 5+ other nodes as foundation"
+    rationale: "Core concepts are highly connected hubs"
+
+# Node Health Metrics
+
+health_checks:
+
+  orphan_nodes:
+    definition: "Nodes with <3 inbound links"
+    action: "Review and strengthen connections or consolidate"
+
+  link_sprawl:
+    definition: "Nodes with >10 links"
+    action: "Review if node is too broad, consider splitting"
+
+  weak_relationships:
+    definition: "Links without explanation of HOW concepts relate"
+    action: "Add relationship descriptions in node body"
+
+  single_domain_isolation:
+    definition: "Nodes that only link within their own domain"
+    action: "Find cross-domain connections to strengthen knowledge web"
+
+# Knowledge Graph Structure Goals
+
+graph_goals:
+  density: "Every node should be reachable from any other node in <4 hops"
+  diversity: "Nodes should link across domains, not just within categories"
+  bidirectionality: "80%+ of links should be reciprocal"
+  hub_formation: "Canonical nodes should naturally emerge as connection hubs"
+  semantic_coherence: "Related concepts should cluster together in graph"
+
+# Special Relationship Patterns for Cold Email
+
+cold_email_patterns:
+
+  diagnostic_chain:
+    description: "Metrics → Signals → Decisions → Actions"
+    example: "[[low-open-rates]] → [[subject-line-failure-signals]] → [[when-to-iterate]] → [[subject-line-optimization]]"
+
+  campaign_development_flow:
+    description: "Research → Strategy → Execution → Measurement"
+    example: "[[icp-definition]] → [[campaign-ideation]] → [[copywriting-tactics]] → [[reply-rate-analysis]]"
+
+  iteration_loop:
+    description: "Metrics → Diagnosis → Decision → Optimization"
+    example: "[[campaign-performance]] → [[failure-signals]] → [[iterate-or-ditch]] → [[copy-optimization]]"
