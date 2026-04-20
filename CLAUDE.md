@@ -94,7 +94,6 @@ Type `/` in Claude Code to see all.
 | Skill | Purpose |
 |-------|---------|
 | `context-os-basics` | Foundation patterns for the multi-model Context OS |
-| `market-research-knowledge-base` | Methodology for mining audience language online |
 | `blue-ocean-niche` | Aesthetic × trait × passion framework for niches |
 | `companion-building` | Character-sheet doctrine (including the AI-disclosure rail) |
 | `dm-script-writing` | Parasocial-first chat-script doctrine |

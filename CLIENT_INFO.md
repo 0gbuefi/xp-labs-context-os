@@ -42,7 +42,7 @@ Men who knowingly seek AI companionship. Sub-segments to research:
 ## Priority actions
 1. Decide on the first model's slug (e.g., `ava-laurent`)
 2. `/ingest notes/canvas.md --model <first-model>` (auto-runs `/quickstart` to scaffold)
-3. Run audience research via the `market-research-knowledge-base` skill → populates `<model>/knowledge_base/audience/`
+3. Drop raw audience VoC (Reddit / YouTube comments / community posts) into `notes/` and `/ingest` it into `<model>/knowledge_base/audience/`
 4. `/generate-niche --model <first-model>`
 5. `/build-companion --model <first-model>` — make sure AI Disclosure section is filled concretely
 6. `/draft-story-arc` + `/write-dm-script`
