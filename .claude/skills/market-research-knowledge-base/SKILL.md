@@ -1,203 +1,83 @@
 ---
 name: market-research-knowledge-base
-description: XP Labs's market research methodology knowledge base — how to find and mine real-world audience language online
+description: XP Labs's audience-research methodology — how to find and mine the exact language lonely men use online
 model: inherit
 ---
 
-# Market Research Knowledge Base
+# Audience Research Knowledge Base
 
 ## What Is This?
 
-XP Labs's **market research methodology repository** — methodology and best practices for finding and mining real-world audience language.
+XP Labs's **audience research methodology repository** — the HOW of finding and mining the real language of men seeking companionship.
 
 **Purpose:**
 - Store techniques, platforms, and processes for finding where target audiences talk online
-- Extract authentic voice-of-customer language to power cold email copy and campaign angles
+- Extract authentic voice-of-audience phrases to power niche ideation, content hooks, and DM scripts
 - Compound research methodology expertise over time
 
 **Scope:**
-- **Methodology-focused:** HOW to research audiences, not WHAT to say in a specific campaign
-- **Continuously evolving:** Grows smarter as you ingest more expertise
+- **Methodology-focused:** HOW to research audiences, not WHAT specific companions say
+- Continuously evolving as the operator ingests new research techniques
+
+## When to use this skill
+
+Invoke when:
+1. **Scoping a new audience segment** — e.g., "Where do post-divorce men in their 40s talk about loneliness online?"
+2. **Finding content/script hooks** — What phrases is the segment using to describe their pain?
+3. **Validating a pain point** — Is this pain real and specific, or are we projecting?
+4. **Mining voice-of-audience** — What words, metaphors, and rhythms do these men use so a companion can mirror them?
+5. **Scoping research effort** — How much intel do we need before launching a new companion?
+6. **Deciding where to look** — Which platforms surface this segment most densely?
+
+## Canonical sources for XP Labs's motion
+
+Lonely-men audience density is high on:
+- **Reddit:** r/lonely, r/ForeverAlone, r/Divorce, r/Widowers, r/AskMenOver30, r/dating_advice (men's perspective), niche-specific subreddits matching each companion's passion axis
+- **YouTube comment sections:** male-targeted self-help / dating / fitness / stoicism channels
+- **Forums:** PurseForum (no), pick-up artist forums (legacy), MMA / gear / hobby forums where men vent in off-topic threads
+- **Twitter/X:** reply guys under male-self-help posts, quote-tweets of influencers addressing dating market
+- **TikTok comment sections:** same as YouTube, faster cadence
+- **Discord / niche communities:** gaming / hobby / crypto servers where loneliness leaks into general-chat
+
+## Core principles (methodology doctrine)
+
+1. **Anonymous-platform advantage** — men are more honest about loneliness when their real identity isn't attached. Reddit > LinkedIn > X personal account.
+2. **Listen, don't ask** — direct surveys produce sanitized answers. Reading existing threads where men were already venting produces raw language.
+3. **Identity × Problems × Dreams × Obstacles** — for any segment, extract all four: who he thinks he is, what's wrong, what he wants, what blocks him.
+4. **Capture verbatim, not paraphrased** — the value is in exact phrases. Paraphrasing strips the raw material.
+5. **Three-pass research:** broad (find the watering holes) → focused (the top 5–10 threads or posts) → edge cases (where does the pattern break?)
+6. **Saturation threshold** — stop when new threads stop producing new phrases or patterns. Usually 15–30 sources per segment.
+
+## Integration with the main knowledge graph
+
+- This skill holds **methodology** (HOW)
+- `knowledge_base/audience/` in the main repo holds **instances** (WHAT specific men say, organized by segment/pain/desire/language)
+- When running research, apply the methodology here → produce nodes there
+
+Example flow:
+```
+Task: research the "post-divorce men 40s" segment for XP Labs
+
+1. Apply anonymous-platform-advantage → start on r/Divorce and r/DadForADay
+2. Apply three-pass research → scan 20 threads, collect verbatim
+3. Apply Identity × Problems × Dreams × Obstacles → organize findings
+4. Produce nodes:
+   knowledge_base/audience/segment-post-divorce-men-40s.md
+   knowledge_base/audience/pain-co-parenting-loneliness.md
+   knowledge_base/audience/language-common-phrases-r-divorce.md
+```
+
+## Node structure (for nodes inside this skill's internal KB)
+
+Methodology nodes inside this skill follow the same format as the main Context OS:
+- Frontmatter with domain, status, topics, related_concepts
+- Minimum 3 links
+- Source attribution
+
+## Quick reference
+- **Ingest methodology content into this skill's KB:** paste into `canvas.md`, run `Ingest this canvas into the audience research knowledge base`
+- **Apply methodology to a real research task:** invoke this skill, then save outputs to `knowledge_base/audience/` in the main repo
 
 ---
 
-## When Agents Use This KB
-
-Agents should query this knowledge base when:
-
-1. **Starting ICP research for a new client:** Where should we look for this audience?
-2. **Finding copy angles:** What language is the ICP using about their pain?
-3. **Validating pain points:** Are we sure this is a real problem? What's the evidence?
-4. **Mining voice-of-customer:** What words, phrases, metaphors do they use?
-5. **Scoping research effort:** How much research is needed for this job?
-6. **Deciding where to look:** Which platforms make sense for this niche?
-
-**Example queries:**
-- "Where should I do research for a B2B SaaS targeting CFOs?"
-- "How do I extract copy-worthy language from a Reddit thread?"
-- "What framework should I use for documenting research findings?"
-- "When have we done enough research to start writing?"
-
----
-
-## Knowledge Base Structure
-
-```
-market-research-knowledge-base/
-├── SKILL.md                    # This file (how to use the KB)
-├── canvas.md                   # Staging area for ingestion
-├── knowledge_base/             # Atomic knowledge nodes
-│   ├── source-platforms/       # Where to find audiences (Reddit, Amazon, YouTube, etc.)
-│   ├── research-process/       # The actual steps and process for doing research
-│   ├── voice-of-customer/      # Extracting language, identity, pain, dreams, obstacles
-│   └── research-strategy/      # When to stop, how much to do, project scoping
-└── _system/
-    ├── taxonomy.yaml           # Blessed tags and categories
-    └── ontology.yaml           # How concepts relate
-```
-
----
-
-## How to Use This KB
-
-### For Users: Adding Knowledge
-
-1. **Find valuable content** (YouTube video, course, article, case study)
-2. **Paste into canvas.md** (full transcript or article text)
-3. **Run command:**
-   ```
-   Ingest this canvas into the market research knowledge base
-   ```
-4. **AI processes content:**
-   - Extracts key concepts
-   - Creates atomic knowledge nodes
-   - Auto-links related concepts
-   - Tags with taxonomy
-
-### For Agents: Querying Knowledge
-
-**Pattern 1: Platform Selection**
-```
-When user asks where to research a specific audience:
-1. Read source-platforms/ nodes for platform options
-2. Apply anonymous-platform-advantage principle
-3. Recommend platforms appropriate to the niche
-```
-
-**Pattern 2: Research Execution**
-```
-When user is starting research for a client:
-1. Read research-process/ nodes for methodology
-2. Read voice-of-customer/ nodes for what to look for
-3. Guide user through the process
-```
-
-**Pattern 3: Research Scoping**
-```
-When deciding how much research to do:
-1. Read research-strategy/ nodes for stopping criteria
-2. Apply project-value threshold guidance
-3. Recommend appropriate depth
-```
-
----
-
-## Node Structure Standard
-
-Every knowledge node in this KB follows this format:
-
-```yaml
----
-name: CONCEPT_NAME_IN_CAPS
-description: One sentence description
-scope: agency
-domain: source-platforms|research-process|voice-of-customer|research-strategy
-node_type: concept|pattern|framework|case-study|diagnostic
-status: emergent|validated|canonical
-created: YYYY-MM-DD
-last_updated: YYYY-MM-DD
-tags:
-  - [domain]
-topics:
-  - [3-7 topics from taxonomy]
-related_concepts:
-  - "[[concept-1]]"
-  - "[[concept-2]]"
-  - "[[concept-3]]"
-source: "[Video title / Article URL / Book name]"
-date_accessed: YYYY-MM-DD
----
-```
-
----
-
-## Integration with Client Work
-
-### How This KB Relates to Client KBs
-
-**XP Labs Knowledge Base (`knowledge_base/`):**
-- Stores XP Labs-specific info (ICPs, pain points, competitors, product features)
-- Located: `knowledge_base/`
-
-**Market Research Domain Expert KB:**
-- Stores methodology (HOW to find and extract audience language)
-- Located: `.claude/skills/market-research-knowledge-base/`
-
-**Workflow Example:**
-
-```
-User: "Research the ICP for XP Labs (B2B SaaS, targets copywriters)"
-
-Agent:
-1. Query market research KB:
-   - [[anonymous-platform-advantage]] → go to Reddit first
-   - [[three-step-introverted-research-process]] → find, read, document
-   - [[identity-problems-dreams-obstacles-framework]] → what to look for
-
-2. Execute research on Reddit/forums/Amazon
-3. Extract voice-of-customer language
-4. Store findings in XP Labs's knowledge base:
-   - ICP: [[icp-copywriters]]
-   - Pain points: [[pain-point-manual-reddit-research]]
-   - Language: [[copywriter-research-language]]
-```
-
-**Key Principle:**
-- Market Research KB = HOW to find audience language
-- XP Labs KB = WHAT that audience says (specific to XP Labs's market)
-
----
-
-## Automatic Health Checks
-
-**Every time this skill is invoked, check KB health:**
-
-- Node count milestone: every 25 nodes, prompt taxonomy review
-- Tag sprawl: warn if >10 tags with ≤2 nodes
-- Orphan tags: warn if any taxonomy tags have 0 nodes
-- Weak linking: warn if >5 nodes have <3 links
-
----
-
-## Quick Reference Commands
-
-**Add knowledge:**
-```
-Ingest [canvas/transcript] into market research knowledge base
-```
-
-**Query expertise:**
-```
-"What does the market research KB say about [topic]?"
-```
-
-**Review taxonomy:**
-```
-Read: _system/taxonomy.yaml
-```
-
----
-
-**Created:** 2026-02-19
-**Version:** 1.0.0
-**Scope:** XP Labs market research methodology
+**Scope:** XP Labs audience-research methodology (companionship-for-men motion)
