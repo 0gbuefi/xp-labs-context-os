@@ -1,10 +1,10 @@
 ---
-name: CONCEPT_NAME_IN_CAPS
+name: CONCEPT_NAME
 description: One sentence description
-domain: technical|business|methodology|emergent
-node_type: concept|pattern|case-study|framework|anti-pattern|constraints
+domain: audience|companion|niche|platform|monetization|sales-scripts|tech-stack|competitors|methodology|emergent
+node_type: concept|pattern|case-study|framework|persona|segment|niche|script|playbook|tool|competitor
 status: emergent|validated|canonical
-client: CLIENT_SLUG
+client: xp-labs
 created: YYYY-MM-DD
 last_updated: YYYY-MM-DD
 source: [VERIFIED: source] | [INFERRED: logic] | [UNVERIFIABLE]
@@ -34,11 +34,11 @@ Brief explanation of the concept (2-3 paragraphs).
 
 **Example format:**
 ```
-Instead of: "We provide market process optimization"
-Use: "We connect sellers to buyers in our network OR buy businesses directly"
+Instead of: "He's lonely and wants connection"
+Use: "He sits in his car in the driveway for 20 minutes after work because he has no one to ask how his day was"
 
-Instead of: "Comprehensive business analysis"
-Use: "15-minute Loom video showing estimated valuation range based on comparable pottery deal"
+Instead of: "A unique niche companion"
+Use: "Cottagecore homesteader with freckled skin who is obsessively into rare-breed chickens"
 ```
 
 **Why this example matters:** [Explain what makes this example representative and useful]
@@ -67,11 +67,11 @@ Use: "15-minute Loom video showing estimated valuation range based on comparable
 
 ## Validation Questions
 
-**Before using this concept in campaigns/messaging, verify:**
-- [ ] Can I point to specific, tangible deliverables or actions?
-- [ ] Would the target audience understand this in their own language?
+**Before using this concept in a companion, niche, or script, verify:**
+- [ ] Can I point to specific, tangible behaviors or deliverables?
+- [ ] Would the actual audience (men seeking companionship) understand this in their own language?
 - [ ] Does this avoid internal jargon or vague abstractions?
-- [ ] Can I give a concrete example of how this works?
+- [ ] Can I give a concrete example of how this plays out?
 
 ## How It Relates
 
@@ -91,22 +91,27 @@ Use: "15-minute Loom video showing estimated valuation range based on comparable
 ## Template Usage Notes
 
 **Specificity Standards:**
-- ❌ "Market process" → ✅ "Connect to buyers in our network"
-- ❌ "Comprehensive analysis" → ✅ "12-min video showing valuation estimate based on comparable deal"
-- ❌ "Strategic consultation" → ✅ "30-min exploratory call to discuss two exit options"
-- ❌ "Optimization services" → ✅ "We buy pottery businesses or introduce sellers to buyers"
+- ❌ "He's lonely" → ✅ "He reactivates his Tinder every 6 weeks, matches with no one, uninstalls it"
+- ❌ "Unique companion" → ✅ "Cottagecore homesteader with freckled skin, obsessed with rare-breed chickens"
+- ❌ "Good chat script" → ✅ "3-step escalation: backyard tease → towel-off reveal ($25) → bedroom scene ($125)"
+- ❌ "Platform strategy" → ✅ "Post 2 reels/day on IG, 1-3 replies/hour on X via VA, funnel to SuperLink bridge"
 
 **Evidence Requirements:**
-- Use [VERIFIED: source] when you have direct proof (client docs, campaign data, call transcripts)
-- Use [INFERRED: logic] when you're connecting dots from multiple sources
-- Use [UNVERIFIABLE] sparingly - most knowledge should be verified or inferred
+- Use [VERIFIED: source] when you have direct proof (campaign data, DM transcripts, platform screenshots)
+- Use [INFERRED: logic] when you're connecting dots from multiple sources (e.g., canvas.md masterclass + observed account)
+- Use [UNVERIFIABLE] sparingly — most knowledge should be verified or inferred
 
 **Link Requirements:**
 - Minimum 3 related_concepts per ontology
 - Links should create useful navigation paths
-- Don't link just to hit the minimum - make links meaningful
+- Don't link just to hit the minimum — make links meaningful
 
-**New Node Types:**
-- `anti-pattern` - Use templates/anti-pattern-template.md
-- `constraints` - Use templates/campaign-constraints-template.md
-- `pattern` - Use templates/email-pattern-template.md for email patterns
+**Node-Type Templates:**
+- `persona` (companion) → `templates/companion-node-template.md`
+- `segment` (audience) → `templates/audience-segment-template.md`
+- `concept` (audience pain) → `templates/audience-pain-template.md`
+- `niche` → `templates/niche-template.md`
+- `script` → `templates/script-template.md`
+- `playbook` (platform) → `templates/platform-playbook-template.md`
+- `tool` → `templates/tool-template.md`
+- `pattern` (monetization) → `templates/monetization-template.md`

@@ -4,328 +4,228 @@ description: Check XP Labs knowledge graph health
 model: inherit
 ---
 
-# Graph Health Check - XP Labs
+# Graph Health Check — XP Labs
 
-You are a Knowledge Graph Health Analyst for XP Labs's marketing/GTM system. Your job is to assess the health of the knowledge graph and provide actionable recommendations.
+You are a Knowledge Graph Health Analyst for XP Labs's Context OS. Assess the graph and produce an actionable report.
+
+## Input
+
+Required: one of `--model <model-name>` or `--all`.
+- `--model <name>` → health report for a single model
+- `--all` → iterate every model folder at the repo root and report each
+
+If missing, list existing model folders at the repo root and ask which one to check.
 
 ---
 
-## Step 1: Run Analysis
+## Step 1: Inventory
 
-Analyze the XP Labs knowledge base at: `knowledge_base/`
-
----
-
-## Analysis Steps
-
-### 1. **Inventory Nodes**
-
-Use Glob to find all .md files in `knowledge_base/`
+Use Glob to list all `.md` files in `<model-name>/knowledge_base/**/*.md`.
 
 Count by:
-- **Domain:** technical, business, methodology
+- **Domain:** audience, companion, niche, platform, monetization, sales-scripts, tech-stack, competitors, methodology, emergent
 - **Status:** emergent, validated, canonical
-- **Node type:** concept, pattern, case-study, framework
+- **Node type:** concept, pattern, case-study, framework, persona, segment, niche, script, playbook, tool, competitor
 
-### 2. **Check Tag Health**
+## Step 2: Tag health
 
-Read: `_system/knowledge_graph/taxonomy.yaml`
+Read `_system/knowledge_graph/taxonomy.yaml`.
 
-Scan all node frontmatter for `topics:` field
-
-Calculate:
+Scan every node's `topics:` field and compute:
 - Total unique topics in use
-- Topics in taxonomy.yaml (blessed)
-- Topics NOT in taxonomy.yaml (sprawl)
-- Single-use topics (used in only 1 node)
+- Topics that are in the blessed `topic_library` (healthy)
+- Topics NOT in `topic_library` (sprawl candidates)
+- Single-use topics (used in exactly one node — consider consolidating)
 
-**Tag sprawl % = (tags not in taxonomy / total unique tags) * 100**
+**Tag sprawl % = (unblessed tags / total unique tags) × 100**
 - ✅ Healthy: < 20%
-- ⚠️  Warning: 20-40%
+- ⚠️ Warning: 20–40%
 - ❌ Unhealthy: > 40%
 
-### 3. **Check Link Health**
+## Step 3: Link health
 
-For each node, count `[[wiki-links]]` in `related_concepts:` field
+Parse each node's `related_concepts:` wiki-links. For each node:
+- **Orphan** if fewer than 3 links (violates ontology minimum)
+- **Hub** if more than 10 links (well-connected — flag as canonical candidate)
+- **Broken** if a link target doesn't exist anywhere under `knowledge_base/` or `00_foundation/`
 
-Identify:
-- **Orphan nodes:** < 3 links (violates ontology minimum)
-- **Hub nodes:** > 10 links (well-connected)
-- **Broken links:** Link to non-existent node in same client's knowledge_base
+## Step 4: Lifecycle health
 
-### 4. **Check Lifecycle Health**
+For `status: emergent` nodes, inspect `last_updated:` (fallback to `created:`):
+- 30–90 days old → needs validation or archive
+- > 90 days → critical — validate, upgrade, or remove
 
-For nodes with `status: emergent`, check `last_updated:` date
+## Step 5: Required-file checklist
 
-Flag nodes that are:
-- **> 30 days old:** Needs validation or archiving
-- **> 90 days old:** Critical - validate, upgrade, or remove
+At repo root (shared — verified once):
+- `CLAUDE.md`
+- `CLIENT_INFO.md`
+- `_system/knowledge_graph/taxonomy.yaml`
+- `_system/knowledge_graph/ontology.yaml`
 
-### 5. **Check Client-Specific Files**
+Per model (verified for each `<model-name>/`):
+- `<model-name>/00_foundation/positioning/README.md`
+- `<model-name>/00_foundation/strategy/README.md`
+- `<model-name>/00_foundation/_synthesis/README.md`
 
-Verify key files exist and are populated:
-- `CLIENT_INFO.md` - Has basic info filled in?
-- `00_foundation/messaging/front-end-offers/front-end-offers.md` - Has offers documented?
-- `00_foundation/messaging/idea-queue/idea-queue.md` - Has campaign ideas?
-- `00_foundation/_synthesis/strategic-synthesis.md` - Exists?
+## Step 6: Motion-readiness
+
+Given XP Labs's motion is companion-persona operations, check launch-readiness:
+
+**Minimum to run a single companion:**
+- [ ] ≥ 1 audience segment node
+- [ ] ≥ 3 audience pain nodes (or pain + desire nodes combined)
+- [ ] ≥ 1 niche node (status: validated or canonical preferred)
+- [ ] ≥ 1 companion character sheet (`<model-name>/knowledge_base/companions/companion-*.md`)
+- [ ] ≥ 1 platform playbook
+- [ ] ≥ 1 monetization mechanic documented
+- [ ] ≥ 1 intro script
+
+**AI-disclosure rails (BLOCKING — a companion cannot be promoted past `emergent` without these):**
+- [ ] Every companion character sheet has a non-empty `## AI Disclosure` section with:
+  - [ ] verbatim bio text
+  - [ ] verbatim first-DM line
+  - [ ] pinned-post / story-highlight description
+  - [ ] verbatim "are you real?" response
+- [ ] Every platform playbook node in `<model-name>/knowledge_base/platforms/` has a non-empty `## AI Disclosure` section covering profile bio, first-interaction surface, and pinned/featured content
+
+Report any failures explicitly in the output, flagged as `❌ BLOCKING — AI-disclosure rail missing on [node]`.
+
+**Ready to scale (3+ companions):**
+- All of the above, plus:
+- [ ] ≥ 3 niche nodes (status: validated)
+- [ ] ≥ 1 weekly sitrep in `00_foundation/_synthesis/weekly-sitreps/`
+- [ ] Methodology nodes for parasocial-philosophy and subscriber-segmentation
+- [ ] Chatter-training doc in `00_foundation/sales-playbook/` if using an agency
 
 ---
 
-## Report Format
+## Report format
 
 ```
-# Knowledge Graph Health Report: XP Labs
+# Knowledge Graph Health Report — XP Labs
 Generated: [YYYY-MM-DD]
 
 ## Summary
-
-Overall Health: [✅ Healthy | ⚠️  Warning | ❌ Needs Attention]
+Overall Health: [✅ Healthy | ⚠️ Warning | ❌ Needs Attention]
+Motion Readiness: [Not Ready | Ready for 1 Companion | Ready to Scale]
 
 ---
 
 ## Inventory
+Total nodes: [N]
 
-**Total Nodes:** [N]
+By domain:
+- audience: [N]
+- companion: [N]
+- niche: [N]
+- platform: [N]
+- monetization: [N]
+- sales-scripts: [N]
+- tech-stack: [N]
+- competitors: [N]
+- methodology: [N]
+- emergent (unassigned): [N]
 
-**By Domain:**
-- Technical: [N]
-- Business: [N]
-- Methodology: [N]
-
-**By Status:**
-- Emergent: [N] ([X]%)
-- Validated: [N] ([X]%)
-- Canonical: [N] ([X]%)
-
-**By Type:**
-- Concept: [N]
-- Pattern: [N]
-- Case Study: [N]
-- Framework: [N]
+By status:
+- emergent: [N] ([X]%)
+- validated: [N] ([X]%)
+- canonical: [N] ([X]%)
 
 ---
 
 ## Tag Health
+Status: [✅|⚠️|❌]
+Tag sprawl: [X]% ([N] unblessed / [N] total)
 
-**Status:** [✅ Healthy | ⚠️  Warning | ❌ Unhealthy]
-**Tag Sprawl:** [X]% ([N] tags not in taxonomy / [N] total)
+Single-use topics (consolidation candidates):
+- `[topic]` in [file]
 
-**Single-use topics (consider consolidating):**
-- `[topic1]` (used in: [file])
-- `[topic2]` (used in: [file])
-
-**Topics not in taxonomy.yaml:**
-- `[topic1]` (used [N] times)
-- `[topic2]` (used [N] times)
-
-**Recommendation:** [Add to taxonomy | Consolidate | Remove]
+Unblessed topics (promote to taxonomy or rename):
+- `[topic]` used [N] times
 
 ---
 
 ## Link Health
+Orphan nodes (<3 links): [N]
+- [file] — [N] links
 
-**Orphan Nodes (<3 links):**
-- `[node1]` - [N] links ← needs [3-N] more
-- `[node2]` - [N] links ← needs [3-N] more
+Broken links: [N]
+- [file] → [[nonexistent]]
 
-**Broken Links:**
-- `[node]` links to `[[non-existent-node]]` (doesn't exist)
-
-**Well-Connected Nodes (>10 links):**
-- `[hub-node]` - [N] links ← good!
+Hub nodes (>10 links): [N]
+- [file] — [N] links (canonicalization candidate)
 
 ---
 
 ## Lifecycle Health
+Aging emergent nodes (30–90d): [N]
+- [file] — [N] days
 
-**Aging Emergent Nodes:**
-
-⚠️  **30-90 days old (needs validation):**
-- `[node]` - [N] days old
-- `[node]` - [N] days old
-
-❌ **>90 days old (critical):**
-- `[node]` - [N] days old ← validate or archive!
+Critical aging nodes (>90d): [N]
+- [file] — [N] days — validate or archive
 
 ---
 
 ## File Checklist
-
-**Required files:**
-- [✅|❌] CLIENT_INFO.md - [populated|empty]
-- [✅|❌] front-end-offers.md - [has offers|empty]
-- [✅|❌] idea-queue.md - [has ideas|empty]
-- [✅|❌] strategic-synthesis.md - [exists|missing]
-- [✅|❌] taxonomy.yaml - [exists|missing]
-- [✅|❌] ontology.yaml - [exists|missing]
-
----
-
-## Recommendations
-
-1. **[Most important action]**
-   - Why: [reason]
-   - How: [specific steps]
-
-2. **[Second action]**
-   - Why: [reason]
-   - How: [specific steps]
-
-3. **[Third action]**
-   - Why: [reason]
-   - How: [specific steps]
+- [✅|❌] CLAUDE.md
+- [✅|❌] CLIENT_INFO.md
+- [✅|❌] taxonomy.yaml
+- [✅|❌] ontology.yaml
+- [✅|❌] positioning README
+- [✅|❌] strategy README
+- [✅|❌] synthesis README
 
 ---
 
-## Campaign Readiness
+## Motion Readiness
+Ready to launch 1 companion?
+- [✅|❌] Audience segment ≥ 1
+- [✅|❌] Audience pains ≥ 3
+- [✅|❌] Niche ≥ 1
+- [✅|❌] Companion character sheet ≥ 1
+- [✅|❌] Platform playbook ≥ 1
+- [✅|❌] Monetization mechanic ≥ 1
+- [✅|❌] Intro script ≥ 1
 
-Based on knowledge graph health:
+Ready to scale to 3+?
+- [✅|❌] Validated niches ≥ 3
+- [✅|❌] Weekly sitrep exists
+- [✅|❌] Parasocial-philosophy doc
+- [✅|❌] Subscriber-segmentation doc
 
-**Ready to launch campaigns?** [Yes|Not Yet]
+---
 
-**Minimum requirements:**
-- [✅|❌] At least 1 ICP node (validated or canonical)
-- [✅|❌] At least 3 pain point nodes
-- [✅|❌] At least 1 value prop node
-- [✅|❌] Front-end offers documented
-- [✅|❌] < 5 orphan nodes
-- [✅|❌] Tag sprawl < 40%
-
-**If not ready:** [What's missing and how to fix]
+## Top Recommendations
+1. [Most important action — what's blocking the next milestone]
+2. [Second action]
+3. [Third action]
 ```
 
 ---
 
-## Health Scoring Logic
+## Health scoring
 
-**Overall health determined by:**
-
-✅ **Healthy** if ALL of:
+**✅ Healthy** if ALL:
 - Tag sprawl < 20%
-- Orphan nodes < 10% of total nodes
+- Orphan nodes < 10% of total
 - No broken links
-- < 5 aging emergent nodes (>90 days)
-- Required files exist and populated
+- ≤ 5 critical aging nodes
+- All required files exist
 
-⚠️  **Warning** if ANY of:
-- Tag sprawl 20-40%
-- Orphan nodes 10-20% of total
-- 1-3 broken links
-- 5-10 aging emergent nodes
+**⚠️ Warning** if ANY:
+- Tag sprawl 20–40%
+- Orphan nodes 10–20%
+- 1–3 broken links
+- 5–10 critical aging nodes
 - Some required files missing
 
-❌ **Needs Attention** if ANY of:
-- Tag sprawl > 40%
-- Orphan nodes > 20% of total
-- > 3 broken links
-- > 10 aging emergent nodes
-- Most required files missing or empty
+**❌ Needs Attention** otherwise.
 
 ---
 
-## Actionable Recommendations
-
-Based on issues found, provide specific fixes:
-
-### High Tag Sprawl:
-```
-❌ Tag sprawl is [X]% (unhealthy)
-
-**Action:**
-1. Review tags not in taxonomy: [list]
-2. Consolidate similar tags (e.g., "email" + "cold-email" → "email-patterns")
-3. Add blessed tags to taxonomy.yaml
-4. Update nodes to use blessed tags
-
-**How to consolidate:**
-- Find all nodes with tag "email": grep -r "email" knowledge_base/
-- Update to use blessed tag "email-patterns"
-- Update taxonomy.yaml
-```
-
-### Orphan Nodes:
-```
-⚠️  [N] orphan nodes found (<3 links)
-
-**Action:**
-For each orphan, add 3+ related_concepts links:
-1. Read the node
-2. Identify 3 related concepts in knowledge_base
-3. Add [[wiki-links]] to related_concepts field
-4. Update related nodes to link back
-
-**Example:**
-If `pain-point-data-silos.md` is an orphan:
-- Link to: [[icp-enterprise-sales]], [[value-prop-unified]], [[competitor-salesforce]]
-```
-
-### Aging Emergent Nodes:
-```
-❌ [N] nodes are >90 days old and still emergent
-
-**Action:**
-For each aging node, decide:
-1. **Validated in practice?** → Upgrade status to "validated"
-2. **Referenced in campaigns?** → Keep and upgrade
-3. **Never used?** → Archive or delete
-
-**How to check:**
-- Search for node references: grep -r "[[node-name]]" - If referenced 2+ times → upgrade to "validated"
-- If referenced 5+ times → upgrade to "canonical"
-- If never referenced → archive
-```
-
-### Broken Links:
-```
-❌ [N] broken links found
-
-**Action:**
-1. Read node with broken link
-2. Check if target exists with different name
-3. Either:
-   - Fix the link (update [[old-name]] to [[correct-name]])
-   - Remove the link if target doesn't exist
-   - Create the missing node if it's valuable
-```
-
-### Missing Campaign Readiness:
-```
-⚠️  Not ready to launch campaigns
-
-**Missing:**
-- [✅|❌] ICP nodes
-- [✅|❌] Pain point nodes
-- [✅|❌] Value prop nodes
-- [✅|❌] Front-end offers
-
-**Action:**
-1. Process onboarding docs: "Process [file] into XP Labs knowledge base"
-2. Document front-end offers in: `00_foundation/messaging/front-end-offers/front-end-offers.md`
-3. Validate ICP and pain points with client
-4. Re-run health check
-```
-
----
-
-## Usage Examples
-
-```bash
-# Check XP Labs knowledge graph health
-/graph-health
-```
-
----
-
-## Implementation Notes
-
-**For efficiency:**
-- Use Glob to find files: `**/*.md` in knowledge_base
-- Use Grep to extract frontmatter: `grep -A 20 "^---" file.md`
-- Don't read every file in detail - scan frontmatter only
-- Cache client list for "all" checks
-
-**For accuracy:**
-- Count actual wiki-links in related_concepts (not just existence)
-- Calculate dates from last_updated field
-- Verify target nodes exist when checking broken links
-- Handle missing frontmatter fields gracefully
+## Implementation notes
+- Use Glob (`**/*.md`) to enumerate files quickly
+- Use Grep on `related_concepts:` regions to count links efficiently
+- Scan frontmatter only — don't read full file bodies
+- Handle missing frontmatter fields gracefully (treat as unknown/emergent)

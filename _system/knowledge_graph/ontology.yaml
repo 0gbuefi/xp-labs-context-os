@@ -1,22 +1,50 @@
-# Knowledge Graph Ontology - Starter Template
-# Defines how concepts relate
+# Knowledge Graph Ontology - XP Labs
+# Defines how concepts relate in the companionship-for-men motion
 
-version: 1.0.0
-last_updated: 2026-04-13
+version: 2.0.0
+last_updated: 2026-04-20
 
 relationship_types:
 
   enables:
     description: "A makes B possible (foundational)"
-    example: "[[context-engineering]] enables [[fast-iteration]]"
+    example: "[[blue-ocean-method]] enables [[companion-differentiation]]"
 
   supports:
     description: "A provides evidence for B"
-    example: "[[case-study-x]] supports [[methodology-y]]"
+    example: "[[case-study-ava-laurent]] supports [[parasocial-philosophy]]"
 
   implements:
     description: "A is practical execution of B"
-    example: "[[our-sales-process]] implements [[consultative-selling]]"
+    example: "[[script-intro-astronaut]] implements [[escalation-ladder]]"
+
+  targets:
+    description: "A (companion/niche/script/campaign) is aimed at B (audience segment or persona)"
+    example: "[[companion-mia-russo]] targets [[segment-post-divorce-men-40s]]"
+
+  distributed-via:
+    description: "A (companion/campaign) is distributed through B (platform)"
+    example: "[[companion-mia-russo]] distributed-via [[platform-instagram]]"
+
+  monetized-by:
+    description: "A (companion) earns through B (monetization mechanic)"
+    example: "[[companion-ava-laurent]] monetized-by [[mechanic-ppv-story-arcs]]"
+
+  derived-from:
+    description: "A (niche / script / content idea) is derived from B (audience pain/desire/language)"
+    example: "[[niche-gilf-golf]] derived-from [[pain-loneliness-in-retirement]]"
+
+  used-by:
+    description: "A (script / template / tool) is used by B (companion / operator)"
+    example: "[[script-re-engagement]] used-by [[companion-ava-laurent]]"
+
+  competes-with:
+    description: "A occupies overlapping market ground with B"
+    example: "[[our-motion]] competes-with [[competitor-replika]]"
+
+  scales-from:
+    description: "A is a scaling move derived from B"
+    example: "[[companion-v2]] scales-from [[companion-v1]]"
 
 linking_requirements:
   all_nodes:

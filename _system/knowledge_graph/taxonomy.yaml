@@ -1,103 +1,186 @@
 # Knowledge Graph Taxonomy - XP Labs
-# B2B SaaS - AI-Powered Customer Language Research
+# Companionship for Men in the AI Age — companion-persona operations
 
-version: 1.1.0
-last_updated: 2026-04-13
+version: 2.0.0
+last_updated: 2026-04-20
 
 domains:
   blessed:
-    - technical
-    - business
-    - methodology
-    - emergent      # New concepts not yet validated
+    - audience          # The men we serve
+    - companion         # The personas we build
+    - niche             # Blue ocean positioning experiments
+    - platform          # Distribution surfaces (IG, X, TT, Snap, Threads, Reddit)
+    - monetization      # Revenue mechanics
+    - sales-scripts     # DM and chat script patterns
+    - tech-stack        # Tools, phones, account ops
+    - competitors       # Market landscape
+    - methodology       # Chat philosophy, objection handling, parasocial-bond building
+    - emergent          # New concepts not yet validated
 
 node_types:
   blessed:
-    - concept       # Core ideas
-    - pattern       # Repeatable approaches
-    - case-study    # Real examples
-    - framework     # Structured methodologies
+    - concept           # Core ideas
+    - pattern           # Repeatable approaches
+    - case-study        # Real examples
+    - framework         # Structured methodologies
+    - persona           # Audience persona OR companion persona (context from domain)
+    - segment           # Audience segment
+    - niche             # Blue-ocean niche definition
+    - script            # DM / chat script
+    - playbook          # Platform or operational playbook
+    - tool              # Named tech-stack tool
+    - competitor        # Competing product
 
 status_values:
   blessed:
-    - emergent      # Identified but not validated
-    - validated     # Proven in practice (1+ times)
-    - canonical     # Proven and referenced (2+ times)
+    - emergent          # Identified but not validated
+    - validated         # Proven in practice (1+ times)
+    - canonical         # Proven and referenced (2+ times)
 
-# Domain-specific tags for XP Labs (B2B SaaS)
+# Domain-specific tags for XP Labs
 topic_library:
-  technical:
-    - product-features
-    - research-pipeline
-    - ai-analysis
-    - awareness-stages
-    - research-intake
-    - search
-    - pricing
-    - voice-profiles
-    - social-listening
-    - follow-up-research
-    - research-quality
-  business:
-    - icp
-    - target-audience
-    - persona
-    - decision-maker
-    - pain-points
-    - value-props
-    - competitive-intel
-    - positioning
-    - deal-strategy
-    - manual-research
-    - time-waste
-    - organization
-    - research-waste
-    - compounding
-    - research-depth
-    - blind-spots
-    - ai-copy
-    - generic-output
-    - customer-language
-    - messaging-gap
-    - exact-phrases
-    - differentiator
-    - awareness-stages
-    - long-term-value
-    - real-conversations
-    - authenticity
-    - status-quo
-    - reddit-monitoring
-    - social-listening
-    - audience-research
-  audience-intelligence:
-    - imposter-syndrome
-    - confidence-progression
-    - research-anxiety
-    - research-burden
-    - ai-threat
-    - pricing-psychology
-    - creative-identity
-    - craft-pride
-    - career-transitions
-    - career-progression
-    - course-buying-behavior
-    - client-negotiation
-    - cold-outreach
-    - non-native-challenges
-    - comparison-anxiety
-    - copywriter-identity
-    - freelance-platforms
-    - aspiration-framework
-    - aspiration-confidence
-    - aspiration-independence
+  audience:
+    - loneliness
+    - touch-starvation
+    - dating-fatigue
+    - parasocial-hunger
+    - emotional-isolation
+    - post-divorce
+    - never-married
+    - remote-work-isolation
+    - high-income-time-poor
+    - rural-isolation
+    - social-anxiety
+    - aging-out-of-dating
+    - immigrant-isolation
+    - widower
+    - caretaker-burden
+    - audience-language
+    - audience-desires
+    - audience-pains
     - audience-daily-reality
+    - spending-psychology
+    - whale-behavior
+    - time-waster-behavior
+
+  companion:
+    - character-sheet
+    - look-and-aesthetic
+    - personality-traits
+    - backstory
+    - content-themes
+    - chat-tone
+    - voice-profile
+    - consistency-rules
+    - companion-vertical-scaling
+    - companion-horizontal-scaling
+
+  niche:
+    - blue-ocean
+    - physical-trait
+    - irrational-passion
+    - aesthetic-category
+    - interest-overlay
+    - differentiation
+    - purple-cow
+
+  platform:
+    - instagram
+    - x-twitter
+    - tiktok
+    - snapchat
+    - threads
+    - reddit
+    - reels
+    - carousels
+    - stories
+    - thumbnails
+    - hashtags
+    - comment-baiting
+    - reply-strategy
+    - external-traffic
+    - account-warming
+    - ban-risk
+    - skin-exposure-rules
+    - verification
+    - link-in-bio
+    - bridge-pages
+
+  monetization:
+    - subscription-price
+    - paid-posts
+    - pay-per-view
+    - tips
+    - mass-dm
+    - canned-responses
+    - story-arcs
+    - vip-tiers
+    - re-engagement
+    - annual-upsell
+    - urgency
+    - escalation-ladder
+    - whale-attention
+    - medium-spender
+    - profile-funnel
+    - bridge-page
+
+  sales-scripts:
+    - intro-script
+    - re-engagement-script
+    - vip-upsell-script
+    - mass-dm-script
+    - tip-request-script
+    - story-arc-script
+    - first-buyer-discount
+    - scenario-based
+    - holiday-themed
+    - urgency-hook
+    - parasocial-bond
+    - personalization
+    - name-usage
+    - interest-mirroring
+
+  tech-stack:
+    - image-generation
+    - video-generation
+    - lip-sync
+    - motion-control
+    - character-consistency
+    - reference-image
+    - carousel-generation
+    - upscaler
+    - outfit-swap
+    - product-placer
+    - facial-expression
+    - metadata-sanitization
+    - synth-id-removal
+    - phones
+    - containers
+    - dongle-setup
+    - api-keys
+
+  competitors:
+    - ai-companion-app
+    - ai-influencer
+    - human-influencer
+    - ugc-creator
+    - chatbot-platform
+    - fan-platform
+    - chatting-agency
+
   methodology:
-    - email-patterns
-    - discovery-insights
+    - parasocial-philosophy
+    - human-first-chatting
+    - exclusive-attention
+    - subscriber-segmentation
     - objection-handling
+    - conversion-funnel-logic
+    - content-scheming
+    - hook-hijacking
+    - viral-content-analysis
 
 # Quality thresholds
 quality_thresholds:
-  tag_sprawl_warning: 40
+  tag_sprawl_warning: 60
   minimum_topic_count: 3
   maximum_topic_count: 7
